@@ -1,0 +1,204 @@
+INTRODUCTION
+ 
+•The main problem addressed is the environmental impact of road networks in remote and semi- forested tropical regions. These areas suffer from issues such as deforestation, land clearing, and uncontrolled road expansion, which can have severe ecological consequences.
+•AI-Based Remote Road Mapping using Satellite Imagery aims to improve the mapping of road networks in remote areas. It seeks to identify and track road expansions to help protect these ecologicallysensitive regions.
+•Using convolutional neural network models like UNet and ResNet, high-resolution satellite images are analyzed to classify roads and non-road areas. The methodology also includes image preprocessing to enhance the quality of the data used.
+ 
+Loading…
+
+
+LITERATURE SURVEY
+ 
+TITLE
+ 
+AUTHOR
+ 
+ADVANTAGES
+ 
+DISADVANTAGES
+ 
+ALGORITHMS
+YEAR OF PUBLICATION
+DeepGlobe 2018: A Challenge to Parse the Earth through Satellite Images
+ 
+JIlke Demir, Krzysztof
+Koperski, David
+Lindenbaum, Guan Pang,
+Jing Huang, Sai, F Devis
+Tuia, Ramesh Raskar
+ 
+Appreciable
+Accuracy Scores
+ 
+Output road data is
+uncertain for remote
+semi-forested tropical
+areas
+ 
+Data Augmentation,
+UNet, D-LinkNet-34t
+ 
+2018
+Road Topology
+Extraction From
+Satellite Imagery by
+Joint Learning of
+Nodes
+and Their Connectivity
+Jinming Zhang;
+Xiangyun Hu;
+Yujun Wei;
+Lili Zhang
+ 
+Direct Topology
+Extraction
+ 
+Complex Training
+Process and
+Disconnected roads
+ 
+Convolutional
+neural network
+ 
+2023
+Mapping Remote
+Roads UsingArtificial Intelligence
+and Satellite Imagery
+ 
+Sean Sloan ,
+Raiyan R.Talkhani,
+Tao Huang Jayden Engert
+and William F. Laurance
+ 
+High Accuracy and Open-Access, Feasibility
+ 
+ 
+Challenges in
+Detecting Faint
+and Irregular Roads
+and Dependence on
+Imagery Quality
+ 
+ 
+UNet and ResNe
+2004
+
+EXISTING SYSTEM
+•The advancement of automated road detection gained momentum after the 2018 DeepGlobe  Road Extraction Challenge, leading to significant improvements in machine learning models. One major development was Facebook’s modified D-LinkNet-34 model, which was designed to map roads globally using high-resolution satellite images. This dataset became more diverse and extensive, covering larger areas to enhance accuracy in road detection
+•Another approach, NodeConnect, uses a CNN-based method to predict road nodes and their connections directly. This model evaluates road detection using CNN-based models like UNet and ResNet variants, trained on high-resolution satellite images. The research highlights how these models can accurately map roads on a large scale, supporting continuous monitoring of human impact in vulnerable areas.
+ 
+
+Loading…
+
+DRAWBACKS OF EXISTING SYSTEM
+•Though general accuracies of this model are appreciable, the fidelity of its output road data is uncertain for remote semi-forested tropical areas specifically, given the exclusion of such areas from the model’s training dataset.
+•In Road Topology Extraction From Satellite Imagery the training process is complex and heavily relies on connectivity maps to accurately infer road networks.
+•Existing methods fail to address the irregular and sparse road patterns in remote or semi-tropical areas.
+ 
+
+PROPOSED SYSTEM
+•AI-Based Remote Road Mapping using Satellite Imagery used to accurately detect road networks in remote areas using satellite images with UNet and ResNet.Preprocessing techniques like data augmentation (random flips) and class imbalance handling improve performance. A TensorFlow-based data pipeline efficiently loads, preprocesses, and batches image-mask pairs.
+•The system is trained on the DeepGlobe Road Extraction Challenge Dataset, consisting of 6,226 training images, 1,243 validation images, and 1,101 test images, split 80:20 for balanced training.
+•Model performance is evaluated using metrics like IoU, Soft Dice Coefficient, Soft Dice Loss, Recall,and Precision. The training process uses the Adam optimizer and Soft Dice Loss, with dynamic batch sizing and adaptive steps for better learning. A user-friendly framework with an interactive UI supports road mapping for applications in infrastructure planning and emergency response.
+ 
+
+ADVANTAGES OF PROPOSED SYSTEM
+•UNet and ResNet improve road segmentation accuracy.
+•Advanced preprocessing and 80:20 data split enhance generalization.
+•Direct road segmentation eliminates separate node prediction.
+•TensorFlow pipeline optimizes data handling for scalability.
+•Evaluated using IoU, Dice Coefficient, and Precision metrics.
+•User-friendly interface for practical applications.
+ 
+
+PROBLEM STATEMENT
+ 
+    Accurately mapping road networks in remote and semi-forested tropical regions remains significant challenge due to the lack of structured development and regulation. The expansion of these networks often leads to environmental degradation by enabling deforestation, mining, and other land-clearing activities.Traditional road mapping methods struggle to provide timely and precise data, making it difficult to monitor and manage these areas effectively.
+ 
+     This project aims to address this issue by leveraging Convolutional Neural Networks (CNNs), specifically UNet and ResNet models, to classify roads using high-resolution satellite imagery. By evaluating model performance through metrics such as the Intersection over Union (IoU), Soft Dice Coefficient and accuracy, the system ensures accurate detection of road networks.
+ 
+
+OBJECTIVES
+•To implement preprocessing techniques that enhance the quality of satellite imagery (data augmentation,class imbalancing)
+•To develop and train a machine learning model that accurately classify roads using satellite imagery data ,leveraging advanced convolutional neural networks(UNet,ResNet).
+•Compare UNet and ResNet model performances using evaluation metrics such as IoU,Soft dice coefficient and accuracy etc...
+•To develop a user interface
+ 
+ 
+
+METHODOLOGY
+
+Data Collection :
+Obtain high-resolution satellite imagery from trusted sources, focusing on remote and semi-forested tropical areas.
+Data Preprocessing :
+Enhance quality using augmentation and normalization, and address class imbalances.
+Model Training:
+Develop and train UNet and ResNet models using cross-entropy loss and early stopping.
+Evaluation:
+Assess models with Soft dice coefficient and IoU, refining based on performance.
+Deployment:
+Integrate trained models with satellite systems, enabling real-time road mapping via a user-friendly interface.
+ 
+Loading…
+
+DATASET
+•DeepGlobe Road Extraction Challenge Dataset - The deepGlobe Road Extraction Challange dataset is available on Kaggle provided by DeepGlobe Road Extraction Challenge
+•Key Features -
+•This dataset includes the images are of size 1024x1024 pixels, and the dataset includes a total of 6,226 training images. Additionally, there are 1,243 validation images and 1,101 test images.
+•Each satellite image is paired with a mask image that represents the road labels.
+•This dataset serves as a crucial resource for developing models that can identify and map road networks from satellite imagery, which is essential for various applications, including emergency management and infrastructure planning.
+
+Data Preprocessing
+•Loading and Splitting Data with the split ratio of 80:20.
+•Reading Images and Masks by performing normalization and expansion of dimensions.
+•Performing Data Augmentation techniques such as horizontal and vertical flips on images and masks equally.
+•Creating TensorFlow dataset and calculating the training and validation steps.
+
+
+UNet MODEL
+
+
+U-Net is a Convolutional Neural Network (CNN) designed for image segmentation. It follows an encoder-decoder structure, making it effective for pixel-wise classification.
+ 
+
+
+
+ResNet MODEL
+
+
+ResNet (Residual Network) is a deep learning architecture that uses residual connections to allow easier training of very deep networks.
+
+
+Evaluation Metrics
+
+bar chart illustrate the comparative performance of U-Net and ResNet architectures based on various evaluation metrics. The models were assessed using both training and validation data on key segmentation performance indicators: Intersection over Union (IoU), Dice Coefficient, Precision, Recall, and Loss.
+ 
+
+
+User Interface
+
+
+
+
+•The login and registration pages are shown, The new user must first register. After filling out the registration page with their name, email address, password, phone number, and address, users click Register to create an account. Once their account has been created, they can log in using their login information.
+ 
+
+
+
+Following a successful login, the user should choose between the UNet and ResNet models displayed in Figure
+
+
+
+
+CONCLUSION
+ 
+The proposed AI-based remote road mapping system leverages advanced convolutional neural
+networks like UNet and ResNet to accurately classify roads from satellite imagery. By incorporating
+robust preprocessing techniques and evaluation metrics such as Soft Dice coefficeint and IoU, the
+system significantly enhances the precision and efficiency of road mapping in remote and
+ecologically sensitive regions.
+ 
+This approach addresses the challenges of unregulated road development and its associated
+environmental impacts, providing a scalable and reliable solution for managing road networks. By
+integrating artificial intelligence with remote sensing, the system supports sustainable infrastructure
+planning, environmental preservation, and better governance.
